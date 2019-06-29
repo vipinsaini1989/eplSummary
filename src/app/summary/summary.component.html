@@ -1,0 +1,32 @@
+<div class="chart-container" style="position: relative; width:90vw;margin: 0 auto;">
+  <canvas id="myChart">{{ Linechart }}</canvas>
+</div>
+
+<br>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Teams</th>
+      <th scope="col">Total Matches</th>
+      <th scope="col">Won</th>
+      <th scope="col">Lost</th>
+      <th scope="col">Ties</th>
+      <th scope="col">Total Goals Scored For</th>
+      <th scope="col">Total Goals Scored Against</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngIf="chartDetails">
+      <tr class="text-center" *ngFor="let team of objectvalues(chartDetails);let i=index">
+        <th scope="row">{{team.code}}</th>
+        <td>{{team.total}}</td>
+        <td>{{team.won}}</td>
+        <td>{{team.lost}}</td>
+        <td>{{team.tie}}</td>
+        <td>{{team.goalFor}}</td>
+        <td>{{team.goalAgainst}}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
